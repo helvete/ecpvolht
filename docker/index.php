@@ -1,8 +1,8 @@
 <?php
 
 $port = getenv("PORT") ? getenv("PORT") : '8201';
-$user = getenv("USER") ? getenv("USER") : 'portal_user';
-$passwd = getenv("PASSWD") ? getenv("PASSWD") : 'portal';
+$user = getenv("WSOUSER") ? getenv("WSOUSER") : 'portal_user';
+$passwd = getenv("WSOPASSWD") ? getenv("WSOPASSWD") : 'portal';
 
 $headers = [
     'Content-Type: application/json',
