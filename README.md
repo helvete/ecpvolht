@@ -12,4 +12,4 @@ Eon CheckPoint VPN on Linux How-To
 
 ### TODOs
 
-* prepare docker definition to be used as VPN support for application docker stack
+* improve currently primitive solution for docker via routing
