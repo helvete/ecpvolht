@@ -23,7 +23,7 @@ case "POST":
 	break;
 case "PUT":
 case "DELETE":
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->_method);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $_SERVER['REQUEST_METHOD']);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, file_get_contents("php://input"));
 	break;
 default:
