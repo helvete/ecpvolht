@@ -30,4 +30,6 @@ default:
 	throw new \Exception('NIY');
 }
 echo curl_exec($ch);
+http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
+curl_close($ch);
 exit;
