@@ -9,7 +9,7 @@ Eon CheckPoint VPN on Linux How-To
 1. launch the GUI (`qikea`) and connect OR use the CLI variant `ikec -r <sitename> -a` where the sitename is a name of file located at `~/.iked/sites/`
 1. enjoy
 
-In case CLI solution is preferred init service can be used. In order for it to work simlink shell scripts from within ./src as follows:
+In case CLI solution is preferred init service can be used. In order for it to work symlink shell scripts from within ./src as follows:
 
 ![symlinking-the scripts](https://raw.githubusercontent.com/helvete/ecpvolht/master/screenshots/ln-s.png)
 
