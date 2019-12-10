@@ -13,7 +13,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+curl_setopt($ch, CURLOPT_TIMEOUT, 300);
 
 switch ($_SERVER['REQUEST_METHOD']) {
 case "GET":
