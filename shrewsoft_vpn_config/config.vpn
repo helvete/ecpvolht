@@ -43,4 +43,4 @@ s:phase2-transform:auto
 s:phase2-hmac:auto
 s:ipcomp-transform:disabled
 s:policy-level:auto
-s:policy-list-include:10.76.65.0 / 255.255.255.0,10.76.72.0 / 255.255.255.0
+s:policy-list-include:10.76.65.0 / 255.255.255.0,10.76.72.0 / 255.255.255.0,10.76.78.0 / 255.255.255.0
