@@ -1,13 +1,14 @@
 <?php
 
 $port = getenv("PORT") ? getenv("PORT") : '8201';
+$url = getenv("ESB_URL") ? getenv("ESB_URL") : '10.76.72.148';
 $user = getenv("WSOUSER") ? getenv("WSOUSER") : 'portal_user';
 $passwd = getenv("WSOPASSWD") ? getenv("WSOPASSWD") : 'portal';
 
 $headers = [
     'Content-Type: application/json',
 ];
-$ch = curl_init("https://{$user}:{$passwd}@10.76.72.148:{$port}/api{$_SERVER['REQUEST_URI']}");
+$ch = curl_init("https://{$user}:{$passwd}@{$url}:{$port}/api{$_SERVER['REQUEST_URI']}");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
