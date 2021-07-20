@@ -1,8 +1,8 @@
 <?php
 
-$port = getenv("PORT") ? getenv("PORT") : '8201';
-$url = getenv("ESB_URL") ? getenv("ESB_URL") : '10.76.72.148';
-$user = getenv("WSOUSER") ? getenv("WSOUSER") : 'portal_user';
+$port = getenv("PORT") ? getenv("PORT") : '8181';
+$url = getenv("ESB_URL") ? getenv("ESB_URL") : '10.76.72.150';
+$user = getenv("WSOUSER") ? getenv("WSOUSER") : 'portal_user_new';
 $passwd = getenv("WSOPASSWD") ? getenv("WSOPASSWD") : 'portal';
 
 $headers = [

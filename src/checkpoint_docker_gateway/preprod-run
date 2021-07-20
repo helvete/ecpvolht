@@ -1,0 +1,2 @@
+#!/bin/bash
+WSOPASSWD=Tatarka13 ESB_URL=10.76.72.150 PORT=8181 php -S 192.168.0.66:8181 -t .
