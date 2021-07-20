@@ -41,6 +41,10 @@
 
 ## Result
 
-* Network tab of status window should look like this after successful setul and tunnel creation:
+* Network tab of status window should look like this after successful setup and tunnel creation:
 
 ![Shrew site config: Status window: Success](https://raw.githubusercontent.com/helvete/ecpvolht/master/screenshots/shrew.png)
+
+* Currently clicking the network tab freezes the window and starts utilizing one whole CPU thread. It suffices to just check for `tunnel enabled` string in **Connect** window.
+
+![Shrew site config: Status window: Success](https://raw.githubusercontent.com/helvete/ecpvolht/master/screenshots/shrew_tunnel_enabled.png)
