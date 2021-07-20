@@ -11,7 +11,7 @@
 
 DAEMON="/etc/init.d/ikew"
 DESC="Ike VPN connect"
-STARTUP_OPTS="ikec -r 88.208.104.30 -a"
+STARTUP_OPTS="ikec -r vpn.eon.cz -a"
 
 test -x "$DAEMON" || exit 0
 
@@ -29,7 +29,7 @@ status_of_proc_ikec () {
     pid=$(ps -A |grep ikec |awk '{ print $1 }')
     case "$pid" in
   	  *[!\ ]*)
-        log_success_msg "$DESC is running"
+        log_success_msg "$DESC is running, PID: $pid"
         return 0;;
   	  *)
         log_failure_msg "$DESC is not running"
@@ -41,7 +41,7 @@ test_run_ikec () {
     pid=$(ps -A |grep ikec |awk '{ print $1 }')
     case "$pid" in
   	  *[!\ ]*)
-        log_success_msg "$DESC is already running"
+        log_success_msg "$DESC is already running, PID: $pid"
         exit 0;;
   	  *)
         return 1;;
