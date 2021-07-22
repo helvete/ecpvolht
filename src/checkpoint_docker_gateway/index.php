@@ -1,16 +1,15 @@
 <?php
 
-$port = getenv("PORT") ? getenv("PORT") : '8181';
-$url = getenv("ESB_URL") ? getenv("ESB_URL") : '10.76.72.150';
-$user = getenv("WSOUSER") ? getenv("WSOUSER") : 'portal_user_new';
-$passwd = getenv("WSOPASSWD") ? getenv("WSOPASSWD") : 'portal';
-
-$headers = [
-    'Content-Type: application/json',
-];
-$ch = curl_init("https://{$user}:{$passwd}@{$url}:{$port}/api{$_SERVER['REQUEST_URI']}");
+$ch = curl_init(sprintf(
+    'https://%s:%s@%s:%s/api%s',
+    $_SERVER['PHP_AUTH_USER'],
+    $_SERVER['PHP_AUTH_PW'],
+    getenv("ESB_URL")?: '10.76.72.150',
+    getenv("PORT")?: '8181',
+    $_SERVER['REQUEST_URI']
+));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -18,18 +17,18 @@ curl_setopt($ch, CURLOPT_TIMEOUT, 300);
 
 switch ($_SERVER['REQUEST_METHOD']) {
 case "GET":
-	break;
+    break;
 case "POST":
-	curl_setopt($ch, CURLOPT_POST, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, file_get_contents("php://input"));
-	break;
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, file_get_contents("php://input"));
+    break;
 case "PUT":
 case "DELETE":
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $_SERVER['REQUEST_METHOD']);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, file_get_contents("php://input"));
-	break;
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $_SERVER['REQUEST_METHOD']);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, file_get_contents("php://input"));
+    break;
 default:
-	throw new \Exception('NIY');
+    throw new \Exception('NIY');
 }
 echo curl_exec($ch);
 http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
