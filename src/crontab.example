@@ -1,0 +1,2 @@
+# m h  dom mon dow   command
+*/5 *   *   *   *   sudo /etc/init.d/iked status || sudo /etc/init.d/iked start
