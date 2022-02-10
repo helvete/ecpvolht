@@ -9,7 +9,6 @@ $ch = curl_init(sprintf(
     $_SERVER['REQUEST_URI']
 ));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -19,9 +18,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
 case "GET":
     break;
 case "POST":
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, file_get_contents("php://input"));
-    break;
 case "PUT":
 case "DELETE":
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $_SERVER['REQUEST_METHOD']);
